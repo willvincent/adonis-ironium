@@ -85,5 +85,6 @@ const jobID = ironium.dispatch(queueName, jobs)
 Queued jobs won't process until you fire up one or more queue workers with the `ironium:start` command.
 
 ### Thanks
-Heavily inspired by [Adonis Kue](https://github.com/nrempel/adonis-kue), thanks [Nick Rempel](https://github.com/nrempel) for that
+Heavily inspired by [Adonis Kue](https://github.com/nrempel/adonis-kue), thanks [Nick Rempel](https://github.com/nrempel) for that!
+
 Also to [Harminder Virk](http://github.com/thetutlage) for creating [Adonis](https://adonisjs.com/).
