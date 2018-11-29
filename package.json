@@ -1,0 +1,76 @@
+{
+  "name": "adonis-ironium",
+  "version": "0.0.1",
+  "description": "Ironium provider for the Adonis 4.x framework",
+  "main": "src/Ironium/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "pretest": "npm run lint",
+    "posttest": "npm run coverage",
+    "test": "ENV_SILENT=true NO_ANSI=false FORCE_COLOR=true nyc node ./bin/index.js --local",
+    "lint": "standard",
+    "lint:fix": "standard --fix",
+    "precommit": "npm run test && lint-staged",
+    "prepush": "npm run test && lint-staged",
+    "coverage": "nyc report --reporter=text-lcov"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:fix",
+      "git add"
+    ]
+  },
+  "author": "Will Vincent <will@willvincent.com>",
+  "license": "MIT",
+  "dependencies": {
+    "boxen": "^1.3.0",
+    "ironium": "^6.1.1",
+    "lodash": "^4.17.10",
+    "ms": "^2.1.1"
+  },
+  "devDependencies": {
+    "@adonisjs/ace": "^4.0.8",
+    "@adonisjs/fold": "^4.0.8",
+    "@adonisjs/framework": "^4.0.31",
+    "@adonisjs/sink": "^1.0.16",
+    "child_process": "^1.0.2",
+    "coveralls": "^3.0.1",
+    "dotenv": "^4.0.0",
+    "husky": "^0.13.4",
+    "japa": "^1.0.6",
+    "japa-cli": "^1.0.1",
+    "lint-staged": "^4.0.0",
+    "nyc": "^11.8.0",
+    "semver": "^5.5.0",
+    "standard": "^10.0.2",
+    "walk-sync": "^0.3.2"
+  },
+  "nyc": {
+    "include": [
+      "src",
+      "providers",
+      "commands"
+    ]
+  },
+  "standard": {
+    "globals": [
+      "use",
+      "make"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willvincent/adonis-ironium.git"
+  },
+  "keywords": [
+    "adonis",
+    "ironium",
+    "queue"
+  ],
+  "bugs": {
+    "url": "https://github.com/willvincent/adonis-ironium/issues"
+  },
+  "homepage": "https://github.com/willvincent/adonis-ironium#readme"
+}
