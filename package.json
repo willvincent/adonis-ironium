@@ -1,6 +1,6 @@
 {
   "name": "adonis-ironium",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Ironium provider for the Adonis 4.x framework",
   "main": "src/Ironium/index.js",
   "directories": {
