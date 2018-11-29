@@ -10,8 +10,8 @@
 */
 
 const path = require('path')
-const fs = require('fs')
 
 module.exports = async function (cli) {
-  fs.copyFile(path.join(__dirname, './templates/ironium.js'), path.join(cli.helpers.configPath(), './ironium.js'))
+  await cli.makeConfig('ironium.js', path.join(__dirname, './templates/ironium.mustache'))
+  cli.command.completed('create', 'config/ironium.js')
 }
