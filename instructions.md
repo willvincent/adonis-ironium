@@ -7,14 +7,14 @@ Make sure to register the provider inside `start/app.js` file.
 // Add the mqtt provider
 const providers = [
   // ...
-  'willvincent/adonis-ironium/providers/IroniumProvider',
+  'adonis-ironium/providers/IroniumProvider',
 ]
 
 // ...
 // Add the command provider
 const aceProviders = [
   // ...
-  'willvincent/adonis-ironium/providers/CommandsProvider',
+  'adonis-ironium/providers/CommandsProvider',
 ]
 ```
 

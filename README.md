@@ -9,7 +9,7 @@ Easy integration of job queues backed by beanstalkd, ironMQ, and Amazon SQS
 See [instructions.md](instructions.md)
 
 ```
-npm install --save adonis-ironium
+adonis install adonis-ironium
 ```
 
 ## Usage
