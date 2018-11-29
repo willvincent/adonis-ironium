@@ -22,7 +22,7 @@
       "git add"
     ]
   },
-  "author": "Will Vincent <will@willvincent.com>",
+  "author": "Will Vincent <tcindie@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "boxen": "^1.3.0",
