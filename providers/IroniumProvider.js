@@ -10,7 +10,9 @@ class IroniumProvider extends ServiceProvider {
       const Logger = app.use('Adonis/Src/Logger')
       const Config = app.use('Adonis/Src/Config')
       const Ironium = require('../src/Ironium')
-      const { jobs } = require(path.join(Helpers.appRoot(), 'start/app.js')) || []
+      let { jobs } = require(path.join(Helpers.appRoot(), 'start/app.js'))
+      
+      if (!jobs) jobs = []
       for (let i = 0; i < jobs.length; i++) {
         const Job = app.use(jobs[i])
         jobs[i] = new Job()

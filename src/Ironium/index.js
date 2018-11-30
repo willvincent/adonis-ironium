@@ -89,6 +89,9 @@ class Ironium {
   start () {
     const instance = this.init()
     this.Logger.info('Ironium queue worker listening for jobs.')
+    if (this.jobs.length < 1) {
+      throw new Error('There are no job queues defined!')
+    }
     return instance.start()
   }
 
@@ -98,6 +101,9 @@ class Ironium {
   stop () {
     const instance = this.init()
     this.Logger.info('Ironium queue worker shutting down.')
+    if (this.jobs.length < 1) {
+      throw new Error('There are no job queues defined!')
+    }
     return instance.stop()
   }
 
