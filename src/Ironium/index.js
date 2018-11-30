@@ -86,33 +86,24 @@ class Ironium {
    *
    * @public
    */
-  start () {
+  listen () {
     const instance = this.init()
     this.Logger.info('Ironium queue worker listening for jobs.')
     if (this.jobs.length < 1) {
       throw new Error('There are no job queues defined!')
     }
-    return instance.start()
-  }
-
-  /**
-   * Stop processing queues
-   */
-  stop () {
-    const instance = this.init()
-    this.Logger.info('Ironium queue worker shutting down.')
-    if (this.jobs.length < 1) {
-      throw new Error('There are no job queues defined!')
-    }
-    return instance.stop()
+    return instance.listen()
   }
 
   /**
    * Execute all scheduled jobs
-   * Should only be used for testing!
+   * Should only really be used for testing.
    */
   runOnce () {
     const instance = this.init()
+    if (this.jobs.length < 1) {
+      throw new Error('There are no job queues defined!')
+    }
     return instance.runOnce()
   }
 }

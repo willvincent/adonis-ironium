@@ -2,7 +2,7 @@
 
 const { Command } = require('@adonisjs/ace')
 
-class Stop extends Command {
+class Listen extends Command {
   static get inject () {
     return [
       'Adonis/Addons/Ironium'
@@ -15,16 +15,16 @@ class Stop extends Command {
   }
 
   static get signature () {
-    return 'ironium:stop'
+    return 'ironium:listen'
   }
 
   static get description () {
-    return 'Stop the ironium listener.'
+    return 'Start the ironium listener.'
   }
 
   handle () {
-    return this.Ironium.stop()
+    return this.Ironium.listen()
   }
 }
 
-module.exports = Stop
+module.exports = Listen

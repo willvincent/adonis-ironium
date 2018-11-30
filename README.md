@@ -15,11 +15,10 @@ adonis install adonis-ironium
 ## Usage
 
 ### Command List
-Command                 | Description
-:-----------------------|:-----------
- `adonis make:job`      | Make a new Job Queue
- `adonis ironium:start` | Start the queue listener
- `adonis ironium:stop`  | Stop the queue listener
+Command                  | Description
+:------------------------|:-----------
+ `adonis make:job`       | Make a new Job Queue
+ `adonis ironium:listen` | Start the queue listener
 
 ### Creating your first job queue
 
@@ -82,7 +81,7 @@ const jobID = ironium.dispatch(queueName, jobs)
 ```
 
 ## Reminder
-Queued jobs won't process until you fire up one or more queue workers with the `ironium:start` command.
+Queued jobs won't process until you fire up one or more queue workers with the `ironium:listen` command.
 
 ### Thanks
 Heavily inspired by [Adonis Kue](https://github.com/nrempel/adonis-kue), thanks [Nick Rempel](https://github.com/nrempel) for that!
