@@ -83,6 +83,28 @@ const jobID = ironium.dispatch(queueName, jobs)
 ## Reminder
 Queued jobs won't process until you fire up one or more queue workers with the `ironium:listen` command.
 
+
+## Important Note
+
+If you wish to dispatch jobs from _within_ jobs, `use` does not appear to behave as one might expect,
+so instead you should use `ioc.make()` like so:
+
+```
+const { ioc } = require('@adonisjs/fold')
+
+class Example {
+  async handle (job) {
+    const Ironium = ioc.make('Ironium')
+    const Logger = ioc.make('Logger')
+
+    const jobId = await Ironium.dispatch('AnotherJob', anotherPayload)
+    Logger.info('Dispatching Job(s): ', jobId)
+
+    return
+  }
+}
+```
+
 ### Thanks
 Heavily inspired by [Adonis Kue](https://github.com/nrempel/adonis-kue), thanks [Nick Rempel](https://github.com/nrempel) for that!
 

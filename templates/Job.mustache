@@ -1,10 +1,14 @@
 'use strict'
 
 class {{name}} {
-  // This is where the work is done.
-  handle (job) {
+  // The handle method is required, and must either be async
+  // or return a resolved promise, ie: 
+  //    return Promise.resolve()
+  async handle (job) {
+    // PROCESS YOUR JOB HERE
     console.log('{{name}} job started')
-    return Promise.resolve();
+
+    return
   }
 }
 
