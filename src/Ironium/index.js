@@ -12,7 +12,7 @@ class Ironium {
     this.Logger = Logger
     this.config = config
     this.jobs = jobs
-    this._instance = this.init()
+    this.init()
   }
 
   /**
@@ -40,8 +40,6 @@ class Ironium {
         this._instance.queue(job.constructor.name).eachJob(job.handle)
       }
     }
-
-    return this._instance
   }
 
   /**
@@ -59,6 +57,7 @@ class Ironium {
     if (delay && !ms(delay)) {
       throw new Error(`Expected delay to be either a number or a string parsable by ms().`)
     }
+    if (!this._instance) this.init()
 
     const queue = this._instance.queue(queueName)
 
@@ -87,12 +86,13 @@ class Ironium {
    * @public
    */
   listen () {
-    const instance = this.init()
+    if (!this._instance) this.init()
     this.Logger.info('Ironium queue worker listening for jobs.')
     if (this.jobs.length < 1) {
       throw new Error('There are no job queues defined!')
     }
-    return instance.listen()
+
+    return this._instance.start()
   }
 
   /**
@@ -100,11 +100,11 @@ class Ironium {
    * Should only really be used for testing.
    */
   runOnce () {
-    const instance = this.init()
+    if (!this._instance) this.init()
     if (this.jobs.length < 1) {
       throw new Error('There are no job queues defined!')
     }
-    return instance.runOnce()
+    return this._instance.runOnce()
   }
 }
 
