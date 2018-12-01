@@ -35,7 +35,7 @@ The `handle` method is the only requirement!
 
 [Here's an example.](examples/app/Jobs/Example.js)
 
-The only real limitation, other than job payload size, which is dictated by the queue backend:
+The only real limitation is job payload size, which is dictated by the queue backend:
 - AWS and IronMQ: 256k
 - beanstalkd: 64k by default, but configurable
 
