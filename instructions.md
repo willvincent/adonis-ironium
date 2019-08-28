@@ -17,11 +17,6 @@ const aceProviders = [
   'adonis-ironium/providers/CommandsProvider',
 ]
 
-// Add a jobs array, where you will add job queues you define
-const jobs = []
-
-// Add the jobs array to the module.exports:
-module.exports = { providers, aceProviders, aliases, commands, jobs }
 ```
 
 ## Config

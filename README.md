@@ -39,6 +39,12 @@ The only real limitation is job payload size, which is dictated by the queue bac
 - AWS and IronMQ: 256k
 - beanstalkd: 64k by default, but configurable
 
+**NOTE:**
+
+`adonis make:job MyQueue` will create a job class in `app/Jobs`, these are automatically registered and accessibly simply by specifying the class name as the queue name when dispatching a job.
+
+ie: `ironium.dispatch('MyQueue', { payload_data: 'goes here' })`
+
 ### Dispatching jobs
 
 Dispatching jobs is pretty straightforward...
