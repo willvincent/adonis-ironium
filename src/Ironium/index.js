@@ -92,6 +92,13 @@ class Ironium {
       throw new Error('There are no job queues defined!')
     }
 
+    process.once('SIGTERM', (sig) => {
+      this.Logger.info('Ironium queue worker shutting down.')
+      this._instance.stop()
+      // Give it 5s to settle and/or finish in flight jobs
+      setTimeout(() => process.exit(0), 5000)
+    })
+
     return this._instance.start()
   }
 
